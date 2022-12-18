@@ -35,7 +35,6 @@ export default function StandingsComp() {
 
   return (
     <div className="container standings_container">
-      <h3>מקומות</h3>
       <table className="table">
         <thead>
           <tr>

@@ -6,6 +6,7 @@ import HomeComp from './components/homepage';
 import { init } from './components/utils';
 import TournamentComp from './components/tournament';
 import NoInternetComp from './components/noInternet';
+import Playoff16Comp from './components/playoff16';
 
 function App() {
 
@@ -23,6 +24,7 @@ function App() {
       <NoInternetComp>
           <Routes>
             <Route path='/' element={<TournamentComp></TournamentComp>}></Route>
+            <Route path='/playoff' element={<Playoff16Comp></Playoff16Comp>}></Route>
             {/* <Route path='/tournament/:id' element={<TournamentComp></TournamentComp>}></Route> */}
           </Routes>
       </NoInternetComp>
