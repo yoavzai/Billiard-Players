@@ -708,7 +708,7 @@ export async function getStandings(tourId, participants) {
           : (playersResults[player1name].losses += 1);
         playersResults[player1name].plusMinus =
           playersResults[player1name].plusMinus + player1score - player2score;
-        playersResults[player2name].games += 1;
+        // playersResults[player2name].games += 1;
       } else if (participant1.data.active && !participant2.data.active) {
         playersResults[player2name].games += 1;
         player2won
@@ -716,7 +716,7 @@ export async function getStandings(tourId, participants) {
           : (playersResults[player2name].losses += 1);
         playersResults[player2name].plusMinus =
           playersResults[player2name].plusMinus + player2score - player1score;
-        playersResults[player1name].games += 1;
+        // playersResults[player1name].games += 1;
       }
     }
   }

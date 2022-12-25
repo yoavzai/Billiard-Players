@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router";
+import { Link } from "react-router-dom";
 // import { Link } from "react-router-dom";
 // import Playoff16Comp from "./playoff16";
 // import Playoff8Comp from "./playoff8";
@@ -9,7 +10,7 @@ import { loadTournamentData } from "./utils";
 
 export default function TournamentComp() {
   const navigate = useNavigate()
-  // const params = useParams();
+  const params = useParams();
   const dispatch = useDispatch();
   const currentTournament = useSelector((state) => state.currentTournament);
   const [isPlayoff8, setIsPlayoff8] = useState(false);
@@ -17,8 +18,7 @@ export default function TournamentComp() {
  
 
   useEffect(() => {
-    // loadTournamentData(params.id, dispatch);
-    loadTournamentData("tkZZc7JOXs0QjZVaEiLk", dispatch);
+    loadTournamentData(params.id, dispatch);
   }, []);
 
 
@@ -28,7 +28,7 @@ export default function TournamentComp() {
   }
 
   function openPlayoff16() {
-    navigate("/playoff")
+    navigate("/tournament/" + params.id + "/playoff")
     // setIsPlayoff8(false);
     // setIsPlayoff16(true);
   }
@@ -46,9 +46,9 @@ export default function TournamentComp() {
         </div>
       ) : (
       <div>
-        {/* <div className="navigation_menu_container">
+        <div className="navigation_menu_container">
           <Link to="/">בית</Link>
-        </div> */}
+        </div>
         <h2>
           <span>טורניר</span>
           <span>

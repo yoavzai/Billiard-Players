@@ -1,31 +1,39 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Playoff16GameComp from "./playoff16Game";
 import { getPlayerByIdFromStore, init, loadTournamentData } from "./utils";
 
 export default function Playoff16Comp(props) {
   const navigate = useNavigate()
   const dispatch = useDispatch()
+  const params = useParams()
   const currentTournament = useSelector((state) => state.currentTournament);
   const players = useSelector((state) => state.players);
   const [isWinners, setIsWinners] = useState(false)
 
   useEffect(() => {
     if (Object.keys(currentTournament).length === 0) {
-      loadTournamentData("tkZZc7JOXs0QjZVaEiLk", dispatch);
+      loadTournamentData(params.id, dispatch);
     }
-    const p = document.getElementsByClassName("playoff16_container")[0]
-    p.scrollIntoView({"inline": "center"})
-  }, [currentTournament])
+    else {
+      const p = document.getElementsByClassName("playoff16_container")[0]
+      p.scrollIntoView({"inline": "center"})
+    }
+  }, [])
 
   return (
     <div className="playoff_wrapper">
+      {(Object.keys(currentTournament).length === 0) ? 
+      <div>
+        <h2>טוען...</h2>
+      </div>
+      :
       <div className="container playoff16_container">
         <div className="buttons_container">
           <button
             className="button close_button"
-            onClick={() => navigate("/")}
+            onClick={() => navigate("/tournament/" + params.id)}
           >
             סגור
           </button>
@@ -82,6 +90,7 @@ export default function Playoff16Comp(props) {
         </div>
         }
       </div>
+      }
     </div>
   );
 }
