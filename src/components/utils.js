@@ -435,6 +435,12 @@ export async function init(dispatch) {
     type: "init",
     payload: { tables: tables, players: players, tournaments: tournaments },
   });
+  if (tournaments.length > 0) {
+    return tournaments[0].id
+  }
+  else {
+    return null
+  }
 }
 
 export async function getTournamentByIdFromServer(id) {

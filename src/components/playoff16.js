@@ -2,9 +2,9 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import Playoff16GameComp from "./playoff16Game";
-import { getPlayerByIdFromStore, init, loadTournamentData } from "./utils";
+import { getPlayerByIdFromStore, loadTournamentData } from "./utils";
 
-export default function Playoff16Comp(props) {
+export default function Playoff16Comp() {
   const navigate = useNavigate()
   const dispatch = useDispatch()
   const params = useParams()

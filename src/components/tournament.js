@@ -47,7 +47,7 @@ export default function TournamentComp() {
       ) : (
       <div>
         <div className="navigation_menu_container">
-          <Link to="/">בית</Link>
+          <Link to="/" state={{ first: false }}>בית</Link>
         </div>
         <h2>
           <span>טורניר</span>
